@@ -1,0 +1,30 @@
+name: Build and test
+run-name: ${{ github.actor }} is building & testing 🚀
+
+env:
+  APP_ENV: development
+
+on:
+  pull_request:
+    branches:
+      - release
+  push:
+    branches:
+      - feat/**
+      - feature/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build source
+        run: npm run build
