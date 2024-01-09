@@ -1,6 +1,9 @@
 name: Build and test
 run-name: ${{ github.actor }} is building & testing 🚀
 
+env:
+  APP_ENV: development
+
 on:
   pull_request:
     branches:
