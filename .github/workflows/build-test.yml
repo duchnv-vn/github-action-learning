@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is building & testing 🚀
 on:
   pull_request:
     branches:
-      - master
+      - release
   push:
     branches:
       - feat/**
@@ -16,7 +16,7 @@ jobs:
     container:
       image: node:20
       env:
-        NODE_ENV: development
+        NODE_ENV: production
 
     steps:
       - name: Checkout repository
